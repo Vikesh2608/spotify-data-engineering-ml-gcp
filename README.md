@@ -74,7 +74,7 @@ WHERE track_popularity IS NOT NULL;
 
 ### Image Links:
 ![R² Score](r2_score_chart.png)
-![Mean Absolute Error](mae_chart.png)
+![Mean Absolute Error] https://github.com/Vikesh2608/spotify-data-engineering-ml-gcp/blob/main/mae_chart.png
 ![Median Absolute Error](medae_chart.png)
 
 
