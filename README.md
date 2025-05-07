@@ -70,3 +70,10 @@ SELECT
 FROM `melodies-459020.spotify_data.cleaned_playlist_data`
 WHERE track_popularity IS NOT NULL;
 
+![R² Score](r2_score_chart.png)
+![Mean Absolute Error](mae_chart.png)
+![Median Absolute Error](medae_chart.png)
+
+
+
+
