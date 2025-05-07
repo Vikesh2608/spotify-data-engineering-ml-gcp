@@ -38,4 +38,35 @@ This project demonstrates how to build a complete cloud-native data pipeline and
 ## Diagram
 !Workflow Overview
 
-Work in Progress.....
+## 🔄 Improving the ML Model – Boosted Tree Regressor (BigQuery ML)
+
+After training a baseline linear regression model to predict `track_popularity`, I tested a more advanced ML algorithm — `BOOSTED_TREE_REGRESSOR` — using BigQuery ML.
+
+### 🎯 Objective:
+Evaluate whether a boosted ensemble tree model could better capture the nonlinear relationships between track features and popularity.
+
+### 📥 Features Used:
+- `danceability`
+- `energy`
+- `valence`
+- `tempo`
+- `duration_ms`
+
+### 🧪 Training Query:
+```sql
+CREATE OR REPLACE MODEL `melodies-459020.spotify_data.boosted_tree_model`
+OPTIONS(
+  model_type = 'BOOSTED_TREE_REGRESSOR',
+  input_label_cols = ['track_popularity'],
+  max_iterations = 50
+) AS
+SELECT
+  danceability,
+  energy,
+  valence,
+  tempo,
+  duration_ms,
+  track_popularity
+FROM `melodies-459020.spotify_data.cleaned_playlist_data`
+WHERE track_popularity IS NOT NULL;
+
